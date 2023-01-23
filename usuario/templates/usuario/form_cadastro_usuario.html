@@ -1,0 +1,27 @@
+{% extends 'login.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="h-100 p-5 bg-light border rounded-3">
+    <h1>{{ titulo }}</h1>
+    <p class="lead">
+        Preencher todos os campos obrigatórios.
+    </p>
+
+    <form method="post">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <br>
+      <button type="submit" class="btn btn-primary">
+        {% autoescape off %}
+        {{ icone }}
+        {% endautoescape %}
+        {{ botao }}
+      </button>
+    </form>
+
+</div>
+  
+{% endblock %}
